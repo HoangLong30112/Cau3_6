@@ -4,44 +4,33 @@ import java.util.ArrayList;
 
 public class DangKi
 {
-    private String maDK;
-    private ArrayList<HocVien> dshocVien;
-    private ArrayList<KhoaHoc> dskhoaHoc;
+    private HocVien dshocVien;
+    private KhoaHoc dskhoaHoc;
 
     public DangKi() {
-        this.dshocVien = new ArrayList<>();
-        this.dskhoaHoc = new ArrayList<>();
+        this.dshocVien = dshocVien;
+        this.dskhoaHoc = dskhoaHoc;
     }
 
-    public DangKi(String maDK) {
-        this.maDK = maDK;
+    public DangKi(HocVien dshocVien, KhoaHoc dskhoaHoc) {
+        this.dshocVien = dshocVien;
+        this.dskhoaHoc = dskhoaHoc;
     }
 
-    public void themHocVien(HocVien hocVien){
-        dshocVien.add(hocVien);
+    public HocVien getDshocVien() {
+        return dshocVien;
     }
 
-    public void themKhoaHoc(KhoaHoc khoaHoc){
-        dskhoaHoc.add(khoaHoc);
+    public void setDshocVien(HocVien dshocVien) {
+        this.dshocVien = dshocVien;
     }
 
-    //xoa đăng kí khoa hoc
-    
-    public void dkKhoaHoc(String maHV, String maKH){
-        for(HocVien hv: dshocVien){
-            if(maHV.equals(hv.getMaHV())){
-                for(KhoaHoc kh: dskhoaHoc){
-                    if(maKH.equals(kh.getMaKH())){
-                        hv.dangkiKH(kh);
-                    }
-                }
-            }
-        }
+    public KhoaHoc getDskhoaHoc() {
+        return dskhoaHoc;
     }
 
-    public void hienthiDS(){
-        for(HocVien hv: dshocVien){
-            System.out.println(hv.toString());
-        }
+    public void setDskhoaHoc(KhoaHoc dskhoaHoc) {
+        this.dskhoaHoc = dskhoaHoc;
     }
+
 }

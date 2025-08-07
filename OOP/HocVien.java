@@ -8,12 +8,13 @@ public class HocVien
     private String maHV;
     private String hotenHV;
     private String email;
-    private ArrayList<KhoaHoc> maKH;
+    ArrayList<DangKi> dsDangKi;
 
     public HocVien(String maHV, String hotenHV, String email) {
         this.maHV = maHV;
         this.hotenHV = hotenHV;
         this.email = email;
+        this.dsDangKi = new ArrayList<>();
     }
 
     public String getMaHV() {
@@ -40,17 +41,34 @@ public class HocVien
         this.email = email;
     }
 
-    public List<KhoaHoc> getMaKH() {
-        return maKH;
+    public ArrayList<DangKi> getDsDangKi() {
+        return dsDangKi;
     }
 
-    public void setMaKH(ArrayList<KhoaHoc> maKH) {
-        this.maKH = maKH;
+    public void setDsDangKi(ArrayList<DangKi> dsDangKi) {
+        this.dsDangKi = dsDangKi;
     }
 
     public void dangkiKH(KhoaHoc kh){
-        maKH.add(kh);
+        dsDangKi.add(new DangKi(this, kh));
     }
+
+    public void xoaDKKH(KhoaHoc kh){
+        for(int i = 0; i < dsDangKi.size(); i++){
+            if(dsDangKi.get(i).getDskhoaHoc().equals(kh)){
+                dsDangKi.remove(i);
+                break;
+            }
+        }
+    }
+
+    public void hienthiDS(){
+        System.out.println("Học viên: " + hotenHV);
+        for(DangKi dk : dsDangKi){
+            System.out.println("  Đã đăng ký khóa học: " + dk.getDskhoaHoc().getTenKH());
+        }
+    }
+
 
     @Override
     public String toString() {
