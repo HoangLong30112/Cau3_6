@@ -24,6 +24,8 @@ public class DangKi
     public void themKhoaHoc(KhoaHoc khoaHoc){
         dskhoaHoc.add(khoaHoc);
     }
+
+    //xoa đăng kí khoa hoc
     
     public void dkKhoaHoc(String maHV, String maKH){
         for(HocVien hv: dshocVien){
